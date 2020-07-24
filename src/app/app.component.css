@@ -1,0 +1,13 @@
+header{
+    background-color: rgb(202, 200, 200);
+    height: 40px;
+    color: rgb(243, 51, 147);
+    font-size: larger;
+    padding-top: 10px;
+}
+
+
+.spacing_between{
+    margin-left: 5px;
+    margin-right: 5px;
+}

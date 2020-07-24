@@ -1,0 +1,65 @@
+[
+    {
+        "name":"RamLeela",
+        "language":"Hindi",
+        "type":"2D",
+        "rating":3.5,
+        "imageSrc":"../assets/Ramleela_poster.jpg",
+        "place":"Chennai"
+
+    },
+    {
+        "name":"Syeraa",
+        "language":"Telugu",
+        "type":"3D",
+        "rating":3.8,
+        "imageSrc":"../assets/pjimage-3-1569987961.jpg",
+        "place":"Chennai"
+
+    },
+    {
+        "name":"M.S.Dhoni",
+        "language":"English",
+        "type":"3D",
+        "rating":4.0,
+        "imageSrc":"../assets/M.S._Dhoni_-_The_Untold_Story_poster.jpg",
+        "place":"Chennai"
+
+    },
+    {
+        "name":"Bajirao Mastani",
+        "language":"Hindi",
+        "type":"3D",
+        "rating":4.2,
+        "imageSrc":"../assets/Bajirao_Mastani_poster.jpg",
+        "place":"Bengaluru"
+
+    },
+    {
+        "name":"BahuBali",
+        "language":"Telugu",
+        "type":"3D",
+        "rating":4.5,
+        "imageSrc":"../assets/81jNN3an-bL._SY606_.jpg",
+        "place":"Bengaluru"
+
+    },
+    {
+        "name":"Venom",
+        "language":"English",
+        "type":"2D",
+        "rating":4.3,
+        "imageSrc":"../assets/Venom_(2018_film_poster).png",
+        "place":"Chandigarh"
+
+    },
+    {
+        "name":"Avengers:Infinity War",
+        "language":"Telugu",
+        "type":"3D",
+        "rating":3.9,
+        "imageSrc":"../assets/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM.jpg",
+        "place":"Chandigarh"
+
+    }
+]

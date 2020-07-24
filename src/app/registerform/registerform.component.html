@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form [formGroup]="registerForm">
+<table>
+    <tr>
+        <td>
+            <label>First Name</label>
+        </td>
+        <td>
+            <input type="text" name="firstName" formControlName="firstName">
+        </td>
+        <div *ngIf="registerForm.controls.firstName.errors && (registerForm.controls.firstName.dirty || registerForm.controls.firstName.touched)">
+            <p *ngIf="registerForm.controls.firstName.errors.required">This field is required!</p>
+            <p *ngIf="registerForm.controls.firstName.errors.pattern">Only alphabets and space allowed!</p>
+        </div>
+    </tr>
+
+    <tr>
+        <td>
+            <label>Last Name</label>
+        </td>
+        <td>
+            <input type="text" name="lastName" formControlName="lastName"> 
+        </td>
+
+        <div *ngIf="registerForm.controls.lastName.errors && (registerForm.controls.lastName.dirty || registerForm.controls.lastName.touched)">
+            <p *ngIf="registerForm.controls.lastName.errors.required">This field is required!</p>
+            <p *ngIf="!registerForm.controls.lastName.errors.minLength">minimum length is eight!</p>    
+        </div>
+    </tr>
+
+    <fieldset formGroupName="address">
+    <tr>
+
+        <td>
+            <label>Street Name</label>
+        </td>
+        <td>
+            <input type="text" name="street" formControlName="street"> 
+        </td>
+<!-- 
+        <div *ngIf="registerForm.controls.street.errors.required && (registerForm.controls.street.dirty || registerForm.controls.street.touched)">
+
+            <p>this is required!</p>
+
+        </div>
+        -->
+
+    </tr>
+
+    <tr>
+
+        <td>
+            <label>Zip</label>
+        </td>
+        <td>
+            <input type="text" name="zip" formControlName="zip"> 
+        </td>
+
+       
+
+    </tr>
+
+
+    <tr>
+
+        <td>
+            <label>City</label>
+        </td>
+        <td>
+            <input type="text" name="city" formControlName="city"> 
+        </td>
+    </tr>
+
+    </fieldset>
+
+    <tr>
+        <td>
+            <label>Email</label>
+        </td>
+        <td>
+            <input type="text" name="email" formControlName="email"> 
+        </td>
+
+        <div *ngIf="registerForm.controls.email.errors?.emailInvalid.message && (registerForm.controls.email.dirty || registerForm.controls.email.touched)">
+            <p>Invalid Format !</p>
+        </div>
+
+    </tr>
+
+
+    <tr>
+        <button type="submit" (click)="submit()">Submit</button>
+    </tr>
+</table>
+
+</form>
+</body>
+</html>

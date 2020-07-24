@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.component.css">
+   <title>BookMyMovies</title>
+</head>
+<body>
+<header style="padding-left: 5px;padding-right: 5px;">
+        <label for="heading">Movie Ticket Booking</label>   
+        <select name="city" id="city" style="float: right;"  (click)="setPlace(place.value)" #place>
+            <option value="" selected>Choose Place</option>  
+            <option value="Chennai" >Chennai</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Bengaluru">Bengaluru</option>
+        </select> 
+        <img  src="../assets/338-3387740_navigation-navigation-icon-png-transparent-png.png" alt="Location Icon" style="width:15px;float: right;">
+        <button class="spacing_between" style="float: right;" routerLink="/login" *ngIf="user" (click)="user=''">Logout</button>
+        <small class="spacing_between" style="float: right;" *ngIf="user">Welcome {{user|titlecase}}</small>       
+</header>
+
+<main>
+</main>
+</body>
+</html>
+<!-- <router-outlet></router-outlet> -->
+
+<!-- <app-forms></app-forms> -->
+
+<!-- <app-registerform></app-registerform> -->
+
+<app-customerform></app-customerform>

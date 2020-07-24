@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="movies-list.component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>BookMyMovies</title>
+</head>
+<body>
+
+
+<main>
+    <div style="background-color: blue;color: white;padding-left: 5px;padding-top: 10px;padding-bottom: 10px;">
+        Movies Now in Theaters
+    </div>
+    <div style="margin-top: 10px;margin-bottom: 10px;">
+        <span>
+            <label for="sorting" class="spacing_between">Sort By</label>
+            <select name="sort" id="sort" class="spacing_between" (click)="sorting=sort.value" #sort >
+                <option value="" selected>Choose</option>
+                <option value="Popularity" >Popularity</option>
+                <option value="Name">Name</option>
+            </select>
+        </span>
+        <span>
+            <img src="../assets/download.png" alt="search icon" style="width:20px;height:25px;float: right;" >
+            <input type="text" name="search" id="search" style="float: right;" placeholder="Search"  [(ngModel)]="searchText" >
+        </span>
+    </div>
+    <table style="text-align: center;margin-left: 5px;margin-right: 5px;">
+        <tr>
+            <span *ngFor="let movie of movies | sort : sorting | search : searchText | placefiltr : place">
+                <td style="border: 1px solid blue;" >
+                   
+                    <div>
+                        <img src={{movie.imageSrc}} style=" width: 280px;height: 250px;">
+                 
+                    </div>
+                    <div >
+                        <small style="font-size:medium;font-weight: bold;" appMousehover>{{movie.name}}</small>  
+                    </div>
+                    <div>
+                        <small style="color: rgb(4, 148, 184);">{{movie.language}}</small>
+                    </div>
+                    <div>
+                        <small style="color: rgb(4, 148, 184);"> {{movie.type}}  </small>
+                    </div>
+                    <div>
+                        <small style="color: rgb(4, 148, 184);">{{movie.rating}}</small>
+                    </div>
+                    <div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star "></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <div>
+                        <button style="background-color: royalblue;color: white;"  routerLink="/movie-details" (click)="sendDetail(movie)">Book</button>
+                    </div>
+                    <div [class.bordered]="movie.rating>=4" *ngIf="movie.rating>=4">Recommended</div>
+                </td>
+            </span>
+        </tr>
+    </table>
+</main>
+</body>
+</html>

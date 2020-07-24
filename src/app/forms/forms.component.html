@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    
+    <form [formGroup]="registerForm" >
+        
+    <table>
+        <tr>
+            <td> <label for="first_name">First Name</label></td>
+            <td><input type="text" name="first_name" id="first_name" formControlName="firstName"></td>
+            <div  *ngIf="registerForm.controls.firstName.errors && (registerForm.controls.firstName.dirty || registerForm.controls.firstName.touched)">
+                <p *ngIf="registerForm.controls.firstName.errors.required">firstName is required</p>
+                <p *ngIf="registerForm.controls.firstName.errors.pattern">firstName should only be characters</p>
+            </div> 
+          </tr>
+
+        <tr>
+            <td> <label for="last_name">Last Name</label></td>
+            <td><input type="text" name="last_name" id="last_name" formControlName="lastName" ></td> 
+             <div  *ngIf="registerForm.controls.lastName.errors && (registerForm.controls.lastName.dirty || registerForm.controls.lastName.touched)">
+                <p *ngIf="registerForm.controls.lastName.errors.required">lastName is required</p>
+                <p *ngIf="registerForm.controls.lastName.errors.minlength">lastName must be 8 characters long</p>
+            </div>   
+        
+        </tr>
+
+
+        <tr>
+            <td> <label for="email">Email</label></td>
+            <td><input type="text" name="email" id="email" formControlName="email"></td> 
+            <p *ngIf="registerForm.controls.email.errors?.emailInvalid.message && registerForm.controls.email.dirty">Please Enter a valid mail!</p>   
+        </tr>
+        
+
+        <fieldset formGroupName="address">
+        <tr>
+            <td> <label for="street">Street</label></td>
+            <td><input type="text" name="street" id="street" formControlName="street"></td>     
+        </tr>
+
+        <tr>
+            <td> <label for="zip">Zip</label></td>
+            <td><input type="zip" name="zip" id="zip" formControlName="zip"></td>     
+        </tr>
+        <tr>
+            <td> <label for="city">City</label></td>
+            <td><input type="city" name="city" id="city" formControlName="city"></td> 
+        </tr>
+    </fieldset>
+        <tr>
+            <button type="submit" (click)="submitted=true ; submit()">Submit</button>
+        </tr>
+    </table>
+
+</form> 
+
+</body>
+</html>

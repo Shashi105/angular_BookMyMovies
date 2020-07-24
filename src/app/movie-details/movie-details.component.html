@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="movie-details.component.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>BookMyMovies</title>
+</head>
+<body>
+<main>
+        <section id="leftbox">
+            <div class="heading">
+                <small >Movie Details</small>
+            </div>
+           <div>
+            <table style="text-align: center;margin-left: 5px;margin-right: 5px;">
+                <tr>
+                    <span >
+                        <td style="border: 1px solid blue;" *ngIf="movie">
+                            <div>
+                                <img src={{movie.imageSrc}} style=" width: 280px;height: 250px;">
+                            </div>
+                            <div >
+                               <small style="font-weight: bold;">Movie Details:</small> 
+                               <small style="font-size:medium;font-weight: bold;" >{{movie.name}}</small>  
+                            </div>
+                            <div>
+                                <small style="font-weight: bold;">Language:</small>
+                                <small style="color: rgb(4, 148, 184);">{{movie.language}}</small>
+                            </div>
+                            <div>
+                                <small style="font-weight: bold;">Format:</small>
+                                <small style="color: rgb(4, 148, 184);"> {{movie.type}}  </small>
+                            </div>
+                            <div>
+                                <small style="font-weight: bold;">Rating:</small>
+                                <small style="color: rgb(4, 148, 184);">{{movie.rating}}</small>
+                            </div>
+                        </td>
+                    </span>
+                </tr>
+            </table>
+           </div>
+        </section>
+
+        <section id="rightbox">
+         
+                <div  class="heading">
+                    <small>Booking Details</small>
+                </div>
+                <div >
+                    <small style="font-weight: bold;" [hidden]="theaters">Select your theater:</small>            
+                    <p style="color:blue;text-decoration: underline;font-size: smaller;" (click)="theatre_selected='Forum Mall'"> Forum Mall</p>     
+                    <p style="color:blue;text-decoration: underline;font-size: smaller;" (click)="theatre_selected='PVR'"> PVR </p>
+                </div>
+                
+            <table [hidden]="!theatre_selected">
+                <tr>
+                    <td> <small style="font-weight: bold;">Theatre Selected : </small></td>
+                    <td><small>{{theatre_selected}} </small></td> 
+                </tr>
+                <tr>
+                    <td> <small style="font-weight: bold;">Date</small></td>
+                   
+                    <td>
+                        <select name="date" id="date" >
+                            <option value="{{theater.date}}" *ngFor="let theater of theaters" >{{theater.date |  date : 'mediumDate' }}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><small style="font-weight: bold;">Show Timings</small></td>
+                    <td>
+                        <select name="date" id="date" >
+                            <option value="{{theater.date}}" *ngFor="let theater of theaters" >{{theater.date |  date : "HH:mm" }}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <small style="font-weight: bold;">Number of Seats (2-10)</small>
+                    </td>
+                        
+                    <td>
+                        <input type="number" name="seats" id="seats" min="2" max="10">
+                    </td>
+                </tr>
+                <tr>
+                    <button type="submit">Proceed</button>
+                  
+                </tr>
+            </table>
+        </section>
+</main>
+</body>

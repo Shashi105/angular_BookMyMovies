@@ -1,0 +1,28 @@
+
+
+main{
+    margin-top: 100px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;  
+}
+
+
+
+#leftbox { 
+    float:left;  
+    width:48%;  
+    border: 1px solid blue;
+} 
+
+#rightbox{ 
+    float:right; 
+    border: 1px solid blue;
+    width:48%; 
+    padding-bottom: 5px;
+} 
+
+.heading{
+    background:blue; 
+    color:white;
+}

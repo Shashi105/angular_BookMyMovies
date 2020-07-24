@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <form [formGroup]="customerForm">
+
+        <table>
+            <tr>
+                <label >First Name</label>
+            </tr>
+            <tr>
+                <input type="text" name="firstName" id="firstName" formControlName="firstName">
+                <div *ngIf="customerForm.controls.firstName.errors && (customerForm.controls.firstName.touched || customerForm.controls.firstName.dirty)">
+                  <p *ngIf="customerForm.controls.firstName.errors.required">Field Required!</p>
+                  <p *ngIf="customerForm.controls.firstName.errors.pattern">only alphabets and spaces are allowed!</p>
+                    
+                </div>
+            </tr>
+
+            <tr>
+                <label >Last Name</label>
+            </tr>
+            <tr>
+                <input type="text" name="lastName" id="lastName" formControlName="lastName">
+                <div *ngIf="customerForm.controls.lastName.errors && (customerForm.controls.lastName.touched || customerForm.controls.lastName.dirty)">
+                    <p *ngIf="!customerForm.controls.lastName.errors.minLength">minimum 8 characters!</p>
+                    <p *ngIf="customerForm.controls.lastName.errors.required">Field Required!</p>
+                </div>
+            </tr>
+
+            <tr>
+                <label >age</label>
+            </tr>
+            <tr>
+                <input type="text" name="age" id="age" formControlName="age">
+                <div *ngIf="customerForm.controls.age.errors && (customerForm.controls.age.touched || customerForm.controls.age.dirty)">
+                    <p *ngIf="customerForm.controls.age.errors.required">Field Required!</p>
+                </div>
+            </tr>
+
+            <tr>
+                <label >Date Of Birth</label>
+            </tr>
+            <tr>
+                <input type="text" name="dob" id="dob" formControlName="dob">
+                <div *ngIf="customerForm.controls.dob.errors && (customerForm.controls.dob.touched || customerForm.controls.dob.dirty)">
+                    <p *ngIf="customerForm.controls.dob.errors.required">Field Required!</p>
+                </div>
+            </tr>
+
+
+            <tr>
+                <label >Email</label>
+            </tr>
+            <tr>
+                <input type="text" name="email" id="email" formControlName="email">
+                <div *ngIf="customerForm.controls.email.errors?.invalidEmail.message && (customerForm.controls.email.touched || customerForm.controls.email.dirty)">
+                        Invalid Mail!
+                </div>
+            </tr>
+
+            <tr>
+                <button type="submit" (click)="submit()">Submit</button>
+            </tr>
+
+
+        </table>
+
+
+    </form>
+
+
+</body>
+</html>
