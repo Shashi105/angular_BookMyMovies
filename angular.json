@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BookMyMovies"
+    }
+  },
+  "defaultProject": "BookMyMovies",
+  "cli": {
+    "analytics": "026404d9-bc82-4a10-bbcf-8f15f70ed596"
+  }
 }
